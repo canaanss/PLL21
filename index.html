@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PLL 连拧训练</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">CFOP · Permutation of Last Layer</p>
+      <h1>PLL 连拧训练</h1>
+    </div>
+    <div class="summary">
+      <span>21 个 PLL</span>
+      <span>随机顺序</span>
+      <span>整组计时</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="trainer">
+      <div class="trainer-head">
+        <div>
+          <h2>训练窗口</h2>
+          <p>生成 21 个 PLL 的随机排列，按顺序连拧并计时。</p>
+        </div>
+        <button id="generateBtn" class="btn primary">PLL 训练</button>
+      </div>
+
+      <div class="timer-panel">
+        <div class="timer" id="timer">00:00.00</div>
+        <div class="timer-actions">
+          <button id="startBtn" class="btn success">开始计时</button>
+          <button id="stopBtn" class="btn danger">停止</button>
+          <button id="resetBtn" class="btn">重置</button>
+        </div>
+      </div>
+
+      <div class="current-case">
+        <div id="currentDiagram" class="diagram large"></div>
+        <div class="current-info">
+          <p class="case-index" id="caseIndex">尚未开始</p>
+          <h3 id="currentName">点击“PLL 训练”生成顺序</h3>
+          <p class="algorithm" id="currentAlg">生成后会显示当前 PLL 公式。</p>
+          <div class="case-actions">
+            <button id="prevBtn" class="btn">上一个</button>
+            <button id="nextBtn" class="btn primary">下一个</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sequence-wrap">
+        <h2>本轮随机顺序</h2>
+        <div id="sequenceList" class="sequence-list"></div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>训练记录</h2>
+        <div class="stats">
+          <div>
+            <span>当前进度</span>
+            <strong id="progressText">0 / 21</strong>
+          </div>
+          <div>
+            <span>上次用时</span>
+            <strong id="lastTime">--</strong>
+          </div>
+          <div>
+            <span>最佳用时</span>
+            <strong id="bestTime">--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>使用方式</h2>
+        <ul class="tips">
+          <li>先点“PLL 训练”生成随机顺序。</li>
+          <li>点“开始计时”，从第 1 个 PLL 开始连拧。</li>
+          <li>每完成一个 PLL 点“下一个”。</li>
+          <li>第 21 个完成后点“停止”记录成绩。</li>
+          <li>快捷键：空格开始/停止，右箭头下一个，左箭头上一个。</li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+
+  <section class="library">
+    <div class="section-title">
+      <h2>PLL 公式库</h2>
+      <p>每个窗口对应一个 PLL。图为识别示意图，公式可按你的手法继续替换。</p>
+    </div>
+    <div id="pllGrid" class="pll-grid"></div>
+  </section>
+
+  <section id="singlePractice" class="single-practice hidden" aria-hidden="true">
+    <button id="singleBackBtn" class="btn single-back">返回</button>
+    <div class="single-card">
+      <div id="singleDiagram" class="single-diagram"></div>
+      <div class="single-info">
+        <p class="eyebrow">单公式计时</p>
+        <h2 id="singleName">PLL</h2>
+        <p id="singleAlg" class="single-alg"></p>
+        <div id="singleTimer" class="single-timer">00:00.00</div>
+        <div class="single-actions">
+          <button id="singleStartBtn" class="btn success">开始</button>
+          <button id="singleStopBtn" class="btn danger">停止</button>
+          <button id="singleResetBtn" class="btn">重置</button>
+        </div>
+        <p class="single-hint">空格开始 / 停止，Esc 返回主界面</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
